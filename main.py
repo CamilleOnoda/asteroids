@@ -3,6 +3,8 @@ from constants import SCREEN_HEIGHT,SCREEN_WIDTH
 from player import Player
 from asteroid import Asteroid
 from asteroidfield import AsteroidField
+from circleshape import CircleShape
+import sys
 
 
 def main():
@@ -32,6 +34,12 @@ def main():
         dt = clock.tick(60) / 1000.0
         updatable.update(dt)
         screen.fill((0,0,0))
+
+        for obj in asteroids:
+            if player.check_for_collision(obj):
+                print("Game over!")
+                sys.exit()
+
         for obj in drawable:
             obj.draw(screen)
         pygame.display.flip()   
