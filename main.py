@@ -36,7 +36,7 @@ def main():
             
         dt = clock.tick(60) / 1000.0
         updatable.update(dt)
-        screen.fill((0,0,0))
+        screen.fill((255, 192, 203))
 
         for obj in asteroids:
             if player.check_for_collision(obj):
